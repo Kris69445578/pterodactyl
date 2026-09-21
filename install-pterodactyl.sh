@@ -13,11 +13,11 @@ set -e  # stop on first error
 # >>> EDIT THESE BEFORE RUNNING <<<
 # ---------------------------------------------------------------------------
 FQDN="panel.jahim.dpdns.org"      # your domain, already pointed at this VPS
-EMAIL="you@example.com"           # used for SSL cert + admin account
+EMAIL="wamitiantony297@gmail.com"           # used for SSL cert + admin account
 ADMIN_USERNAME="jahim"
-ADMIN_FIRSTNAME="Jahim"
-ADMIN_LASTNAME="Admin"
-ADMIN_PASSWORD="ChangeMe123!"     # change this
+ADMIN_FIRSTNAME="TONY"
+ADMIN_LASTNAME="KLIKE"
+ADMIN_PASSWORD="JAHIM234"     # change this
 TIMEZONE="Africa/Nairobi"
 # ---------------------------------------------------------------------------
 
