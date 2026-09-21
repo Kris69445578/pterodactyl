@@ -13,17 +13,16 @@ set -e  # stop on first error
 # >>> EDIT THESE BEFORE RUNNING <<<
 # ---------------------------------------------------------------------------
 FQDN="panel.jahim.dpdns.org"      # your domain, already pointed at this VPS
-EMAIL="wamitiantony297@gmail.com"           # used for SSL cert + admin account
+EMAIL="wamitiantony297@gmail.com"       # used for SSL cert + admin account
 ADMIN_USERNAME="jahim"
-ADMIN_FIRSTNAME="TONY"
-ADMIN_LASTNAME="KLIKE"
-ADMIN_PASSWORD="JAHIM234"     # change this
+ADMIN_FIRSTNAME="Jahim"
+ADMIN_LASTNAME="Admin"
+ADMIN_PASSWORD="ChangeMe123!"     # change this
 TIMEZONE="Africa/Nairobi"
 # ---------------------------------------------------------------------------
 
 # Auto-generated (leave these as-is)
 DB_PASSWORD=$(tr -dc 'A-Za-z0-9' </dev/urandom | head -c 24)
-MYSQL_ROOT_PASSWORD=$(tr -dc 'A-Za-z0-9' </dev/urandom | head -c 24)
 
 echo "===================================================================="
 echo " Pterodactyl install starting for $FQDN"
@@ -76,15 +75,12 @@ ufw --force enable
 # 3. MariaDB: secure + create panel database
 # ---------------------------------------------------------------------------
 echo ">> Configuring MariaDB"
+# Note: modern MariaDB (10.4+) turns mysql.user into a view and drops the
+# legacy Password column, so we don't touch the root account at all here —
+# root auths via unix_socket locally, which is fine for this script's needs.
 mysql -u root <<EOF
-UPDATE mysql.user SET Password=PASSWORD('${MYSQL_ROOT_PASSWORD}') WHERE User='root';
-DELETE FROM mysql.user WHERE User='';
-DELETE FROM mysql.user WHERE User='root' AND Host NOT IN ('localhost', '127.0.0.1', '::1');
-DROP DATABASE IF EXISTS test;
-DELETE FROM mysql.db WHERE Db='test' OR Db='test\\_%';
-FLUSH PRIVILEGES;
-CREATE DATABASE panel;
-CREATE USER 'pterodactyl'@'127.0.0.1' IDENTIFIED BY '${DB_PASSWORD}';
+CREATE DATABASE IF NOT EXISTS panel;
+CREATE USER IF NOT EXISTS 'pterodactyl'@'127.0.0.1' IDENTIFIED BY '${DB_PASSWORD}';
 GRANT ALL PRIVILEGES ON panel.* TO 'pterodactyl'@'127.0.0.1' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 EOF
@@ -300,7 +296,7 @@ cat > /root/pterodactyl-credentials.txt <<EOF
 Panel URL: https://${FQDN}
 Admin username: ${ADMIN_USERNAME}
 Admin password: ${ADMIN_PASSWORD}
-MySQL root password: ${MYSQL_ROOT_PASSWORD}
 Pterodactyl DB password: ${DB_PASSWORD}
+(MySQL root has no password set — it auths via unix_socket locally, which is normal on Ubuntu/MariaDB)
 EOF
 chmod 600 /root/pterodactyl-credentials.txt
