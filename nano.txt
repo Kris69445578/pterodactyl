@@ -1,2 +1,4 @@
 nano /etc/pterodactyl/config.yml
 25565-25575
+systemctl start wings
+systemctl status wings
