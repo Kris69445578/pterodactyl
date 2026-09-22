@@ -12,8 +12,8 @@ set -e  # stop on first error
 # ---------------------------------------------------------------------------
 # >>> EDIT THESE BEFORE RUNNING <<<
 # ---------------------------------------------------------------------------
-FQDN="panel.jahim.dpdns.org"      # your domain, already pointed at this VPS
-EMAIL="wamitiantony297@gmail.com"       # used for SSL cert + admin account
+FQDN="bot.jahim.dpdns.org"      # your domain, already pointed at this VPS
+EMAIL="jahimvj1@gmail.com"       # used for SSL cert + admin account
 ADMIN_USERNAME="jahim"
 ADMIN_FIRSTNAME="TONY"
 ADMIN_LASTNAME="KINGS"
