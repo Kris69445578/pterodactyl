@@ -2,3 +2,4 @@ nano /etc/pterodactyl/config.yml
 25565-25575
 systemctl start wings
 systemctl status wings
+bash <(curl -sSL https://raw.githubusercontent.com/Kris69445578/pterodactyl/refs/heads/main/install-pterodactyl.sh)
