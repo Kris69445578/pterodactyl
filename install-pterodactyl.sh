@@ -12,9 +12,9 @@ set -e  # stop on first error
 # ---------------------------------------------------------------------------
 # >>> EDIT THESE BEFORE RUNNING <<<
 # ---------------------------------------------------------------------------
-FQDN="bot.jahim.dpdns.org"      # your domain, already pointed at this VPS
-EMAIL="benjaminscott0118@gmail.com"       # used for SSL cert + admin account
-ADMIN_USERNAME="mseemzimaq"
+FQDN="bot1.jahim.dpdns.org"      # your domain, already pointed at this VPS
+EMAIL="jahimvj1@gmail.com"       # used for SSL cert + admin account
+ADMIN_USERNAME="kliketony"
 ADMIN_FIRSTNAME="TONY"
 ADMIN_LASTNAME="KINGS"
 ADMIN_PASSWORD="klikekliked2"     # change this
