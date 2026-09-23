@@ -12,7 +12,7 @@ set -e  # stop on first error
 # ---------------------------------------------------------------------------
 # >>> EDIT THESE BEFORE RUNNING <<<
 # ---------------------------------------------------------------------------
-FQDN="bot.jahim.dpdns.or"      # your domain, already pointed at this VPS
+FQDN="bot.jahim.dpdns.org"      # your domain, already pointed at this VPS
 EMAIL="benjaminscott0118@gmail.com"       # used for SSL cert + admin account
 ADMIN_USERNAME="mseemzimaq"
 ADMIN_FIRSTNAME="TONY"
