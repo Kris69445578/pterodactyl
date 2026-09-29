@@ -1,7 +1,7 @@
 
 <div align="center">
 
-# ⚡ VPN TONY ⚡
+# ⚡ pterodactyl PANEL ⚡
 
 <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=24&duration=2500&pause=700&color=00FF9C&center=true&vCenter=true&width=650&lines=ACCESS+GRANTED...;INITIALIZING+VPN+TONY;SECURE+THE+CONNECTION;WELCOME+TO+HACKSVIBEZ" alt="Animated hacker-mode banner" />
 
@@ -18,21 +18,26 @@
 > 
 
 ```bash
-nano /etc/pterodactyl/config.yml
-25565-25575
-systemctl start wings
-systemctl status wings
 bash <(curl -sSL https://raw.githubusercontent.com/Kris69445578/pterodactyl/refs/heads/main/install-pterodactyl.sh)
 ```
 
-## ▸ TERMINAL STATUS
+## ▸ CONFIG
 
 ```text
-[✓] SYSTEM CHECK .............. PASS
-[✓] NETWORK LAYER ............. READY
-[✓] ENCRYPTION ................ ENABLED
-[✓] VPN TUNNEL ................ STANDBY
-[>] EXECUTE setup.sh .......... NOW
+nano /etc/pterodactyl/config.yml
+```
+
+## ▸ WINGS
+
+```text
+systemctl start wings
+systemctl status wings
+```
+
+## ▸ PORTS
+
+```text
+25565-25575
 ```
 
 <div align="center">
