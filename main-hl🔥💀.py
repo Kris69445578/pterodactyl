@@ -61,7 +61,7 @@ MARTINGALE_MODE_IMMEDIATE = "immediate"
 MARTINGALE_MODE_SIGNAL    = "signal"
 
 CANDLE_INTERVAL_SECONDS  = 60
-TICK_PCT_WINDOW          = 20    # how many recent ticks to evaluate for the % gate
+TICK_PCT_WINDOW          = 10    # how many recent ticks to evaluate for the % gate
 TICK_PCT_THRESHOLD       = 70    # % dominance required to fire a (contrarian) signal (was 90 — moderately loosened)
 TICK_DEBUG_PRINT         = False # set True to print the Higher/Lower/Equal window debug block
 SHOW_CANDLE_LOGS         = False # set True to print "🕯 CANDLE CLOSED" lines to console
@@ -107,7 +107,7 @@ BARRIER_OFFSETS = {
     "R_10": 0.289,  "R_25": 0.383, "R_50": 0.028, "R_75": 19.377, "R_100": 0.35
 }
 
-VOLATILITIES = ["1HZ10V", "1HZ15V", "1HZ25V", "1HZ30V", "1HZ50V", "1HZ75V", "1HZ90V", "1HZ100V", "R_10", "R_25", "R_50", "R_75", "R_100"]
+VOLATILITIES = ["1HZ10V", "1HZ15V", "1HZ25V", "1HZ30V", "1HZ50V", "1HZ75V", "1HZ90V", "1HZ100V", "R_10", "R_25", "R_75", "R_100"]
 
 TICK_STALL_SECONDS        = 75
 WATCHDOG_INTERVAL         = 8
@@ -136,7 +136,7 @@ NEW_WS_PUBLIC    = "wss://api.derivws.com/trading/v1/options/ws/public"
 # ║              TELEGRAM CONFIG                                 ║
 # ╚══════════════════════════════════════════════════════════════╝
 
-TG_TOKEN       = "8707803972:AAFzCElatcjVCSyPl_jPPHPLDuMjAuAMlOk"
+TG_TOKEN       = "8425580686:AAHJ60Ur3fqnSCLIsIt9hPrKGKjJcBevyrc"
 TG_API         = f"https://api.telegram.org/bot{TG_TOKEN}"
 ADMIN_CHAT_ID  = 6113290006
 ADMIN_USERNAME = "@jahimtony"
@@ -4431,7 +4431,6 @@ def _build_status_html(s):
       <h1>📊 Live Status — {user_label}</h1>
       <p>Slot #{s['slot_id']} &bull; 1-Min Candle Engine (Deriv-Aligned) &bull; {_slot_duration_ticks(s)}{CONTRACT_DURATION_UNIT} &bull; {ts}</p>
     </div>
-    {_candle_engine_banner()}
     <div class="api-banner">⚡ <b>API Mode: {api_label}</b> &bull; Account: <code>{html_lib.escape(s.get('account_id','—'))}</code></div>
     <div class="mode-banner">🔁 <b>Martingale Mode: {mode_label}</b> — {_slot_martingale_multiplier(s):g}× on loss</div>
     <div class="stat-grid">
